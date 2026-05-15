@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,8 +37,8 @@ const Navbar = () => {
           />
         
         </Link>
-        <button className="mobile-menu-btn" onClick={toggleMenu}>
-          <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+        <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li>
